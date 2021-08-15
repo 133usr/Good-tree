@@ -5,9 +5,12 @@ project is too heavy for low end phone
 2. Now removing sun
     -removed sun nothing happend
     -removed sunlight nothing happend
-3. Removing rotatio
+3. Removing rotation
     -    
 
+Final- Okay I got it May be the issue is line 417
+if (rotate) update controls 
+the controls keep updating causing heaps. this is it (may be)
 
 # Forests (CMPT 361 Assignment 3 Problem 2 )
 

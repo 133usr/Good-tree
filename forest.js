@@ -414,6 +414,7 @@ function draw(){
     // instanced_geometry.maxInstancedCount = Math.round(time * 10) % num_instances;
 
     renderer.render(scene, camera);
+    controls.update();
     //if(rotate){
     //    controls.update();
   //  }
