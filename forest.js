@@ -109,6 +109,52 @@ function multiplyQuaternions(q1, q2){
     return new THREE.Vector4(x, y, z, w);
 }
 
+//ground by shane
+let land;
+const drawLand = () => {
+	land = new Land();
+	land.group.position.set(0, 0, 0);
+	land.group.rotation.x = -1.57;
+	scene.add(land.group);
+}
+
+
+// Objects' classes
+class Land {
+	constructor() {
+		this.group = new THREE.Group();
+		
+		this.groundMaterial = new THREE.MeshStandardMaterial({
+			color: 0x452823,
+			roughness: 1
+		}); 
+		
+		this.grassMaterial = new THREE.MeshStandardMaterial({
+			color: 0x97c653,
+			roughness: 1
+		}); 
+		
+		this.drawGround();
+		this.drawGrass();
+	}
+	
+	drawGround() {
+		const groundGeometry = new THREE.BoxGeometry(150, 70, 3, 10, 10, 1);
+		const ground = new THREE.Mesh(groundGeometry, this.groundMaterial);
+		ground.translateZ(-2);
+		this.group.add(ground);
+	}
+	
+	drawGrass() {
+		const grassGeometry = new THREE.BoxGeometry(1500, 70, 1, 10, 10, 1);
+		const grass = new THREE.Mesh(grassGeometry, this.grassMaterial);
+		grass.receiveShadow = true;
+		this.group.add(grass);
+	}
+}
+
+
+
 //The ground
 var ground_geometry = new THREE.PlaneGeometry(100, 100, 32, 32);
 ground_geometry.lookAt(new THREE.Vector3(0,1,0));
@@ -391,7 +437,7 @@ draw_tree( 4, 5);
 // );
 
 
-
+drawLand();
 //Show base geometry
 // scene.add(base_blade);
 

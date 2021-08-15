@@ -17,8 +17,13 @@ project is too heavy for low end phone
 **THUS I NEED TO ADD ALL THE ABOVE 1 2 3 4 BACK TO THE SCRIPT
 
 5. Making ground smaller
-    -    
+    ****-   okay so I think ground rendering is the issue
+            becuase from away it is going smooth in mobile but 
+            when I zoom in to the ground I stucks
+            so I got it ~
+            lets find another way of adding ground instead of repeating jpg on screen
 
+            
 
 
 
