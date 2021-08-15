@@ -3,8 +3,10 @@
 project is too heavy for low end phone
 1. tried removing grass but still heavy and is not being loaded don't know why 
 2. Now removing sun
-    -
-
+    -removed sun nothing happend
+    -removed sunlight nothing happend
+3. Removing rotatio
+    -    
 
 
 # Forests (CMPT 361 Assignment 3 Problem 2 )

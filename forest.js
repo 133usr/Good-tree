@@ -16,7 +16,7 @@ var num_instances = 500;
 var num_tree = 150;
 
 //Camera rotat
-var rotate = true;
+//var rotate = true;
 
 //Initialise three.js
 var scene = new THREE.Scene();
@@ -89,10 +89,10 @@ scene.background = cubeTexture;
 
 //OrbitControls.js for camera manipulation by shane
 var controls = new OrbitControls(camera, renderer.domElement);
-controls.autoRotate = rotate;
-controls.autoRotateSpeed = 0.2;
+//controls.autoRotate = rotate;
+//controls.autoRotateSpeed = 0.2;
 controls.enableZoom = true;
-				controls.autorotate =true;
+				//controls.autorotate =true;
 				controls.screenSpacePanning = false;
 				controls.minDistance = 50;
 				controls.maxDistance = 500;
@@ -414,9 +414,9 @@ function draw(){
     // instanced_geometry.maxInstancedCount = Math.round(time * 10) % num_instances;
 
     renderer.render(scene, camera);
-    if(rotate){
-        controls.update();
-    }
+    //if(rotate){
+    //    controls.update();
+  //  }
     //removing lighs and sun
     //dirLight.position.x = 50 * Math.cos(time * 0.5);
    // dirLight.position.y = 50 * Math.sin(time * 0.5);
