@@ -79,13 +79,14 @@ dirLight.shadow.Darkness = 0.35;
 
 var cubeTextureLoader = new THREE.CubeTextureLoader();
 cubeTextureLoader.setPath( './materials/' );
+/*
 var cubeTexture = cubeTextureLoader.load( [
     'px.jpg', 'nx.jpg',
     'py.jpg', 'ny.jpg',
     'pz.jpg', 'nz.jpg',
 ] );
 scene.background = cubeTexture;
-
+*/
 
 //OrbitControls.js for camera manipulation
 var controls = new OrbitControls(camera, renderer.domElement);

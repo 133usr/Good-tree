@@ -24,6 +24,9 @@ project is too heavy for low end phone
             lets find another way of adding ground instead of repeating jpg on screen
 
             - removing ground
+            - still same
+            - removing backgroun of clouds
+            - 
 
 
 
