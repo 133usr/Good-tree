@@ -12,7 +12,7 @@ var h_ = 1;
 var width = 1000;
 
 //Number of blades
-var num_instances = 50000;
+var num_instances = 500;
 var num_tree = 150;
 
 //Camera rotat
@@ -87,12 +87,21 @@ var cubeTexture = cubeTextureLoader.load( [
 scene.background = cubeTexture;
 
 
-//OrbitControls.js for camera manipulation
+//OrbitControls.js for camera manipulation by shane
 var controls = new OrbitControls(camera, renderer.domElement);
 controls.autoRotate = rotate;
-controls.autoRotateSpeed = 0.5;
+controls.autoRotateSpeed = 0.2;
+controls.enableZoom = true;
+				controls.autorotate =true;
+				controls.screenSpacePanning = false;
+				controls.minDistance = 50;
+				controls.maxDistance = 500;
+
+				controls.maxPolarAngle = Math.PI / 2.1;
+				controls.update();
 
 //http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/code/index.htm
+
 function multiplyQuaternions(q1, q2){
     x =  q1.x * q2.w + q1.y * q2.z - q1.z * q2.y + q1.w * q2.x;
     y = -q1.x * q2.z + q1.y * q2.w + q1.z * q2.x + q1.w * q2.y;
@@ -134,6 +143,7 @@ instanced_geometry.index = base_geometry.index;
 instanced_geometry.attributes.position = base_geometry.attributes.position;
 instanced_geometry.attributes.uv = base_geometry.attributes.uv;
 
+
 // Each instance has its own data for position, rotation and scale
 var offsets = [];
 var orientations = [];
@@ -141,6 +151,7 @@ var stretches = [];
 var halfRootAngleSin = [];
 var halfRootAngleCos = [];
 
+/* //removed Grass by shane
 //Temp variables
 var quaternion_0 = new THREE.Vector4();
 var quaternion_1 = new THREE.Vector4();
@@ -149,7 +160,8 @@ var x, y, z, w;
 //The min and max angle for the growth direction (in radians)
 var min = -0.25;
 var max =  0.25;
-
+*/
+/* removed Grass instance known as blade
 //For each instance of the grass blade
 for (var i = 0; i < num_instances; i++){
     //Offset of the roots
@@ -203,7 +215,7 @@ for (var i = 0; i < num_instances; i++){
     }else{
         stretches.push(Math.random());
     }
-}
+} */
 
 var offsetAttribute = new THREE.InstancedBufferAttribute( new Float32Array( offsets ), 3);
 var stretchAttribute = new THREE.InstancedBufferAttribute( new Float32Array( stretches ), 1);
