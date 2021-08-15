@@ -251,7 +251,7 @@ var forest = new THREE.Mesh( instanced_geometry, material );
 // mesh.receiveShadow = true;
 scene.add(forest);
 
-/* remove all grass thingy
+/* remove all grass
 // add shadows to grass blades
 forest.customDepthMaterial = new THREE.MeshDepthMaterial({
     depthPacking: THREE.RGBADepthPacking,
@@ -298,11 +298,12 @@ forest.receiveShadow = true;
 // sphere.position.set(0, 3, 0);
 
 // add sun to the scene
+/*
 var sunGeometry = new THREE.SphereBufferGeometry(  2, 32, 32);
 var sunMaterial = new THREE.MeshStandardMaterial( { color: 0xFDB813 } );
 var sun = new THREE.Mesh( sunGeometry, sunMaterial );
 scene.add( sun );
-
+*/
 
 function draw_tree(x, z) {
 // add tree to the scene
@@ -416,9 +417,10 @@ function draw(){
     if(rotate){
         controls.update();
     }
-    dirLight.position.x = 50 * Math.cos(time * 0.5);
-    dirLight.position.y = 50 * Math.sin(time * 0.5);
-    sun.position.set(500 * Math.cos(time * 0.5), 500 * Math.sin(time * 0.5), 500);
+    //removing lighs and sun
+    //dirLight.position.x = 50 * Math.cos(time * 0.5);
+   // dirLight.position.y = 50 * Math.sin(time * 0.5);
+   // sun.position.set(500 * Math.cos(time * 0.5), 500 * Math.sin(time * 0.5), 500);
     requestAnimationFrame(draw);
 }
 
