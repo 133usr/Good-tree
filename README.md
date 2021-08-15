@@ -26,9 +26,14 @@ project is too heavy for low end phone
             - removing ground
             - still same
             - removing backgroun of clouds
-            - 
+            - still same
 
+*********** I dnt knw what 
+            may be the shaders are the issue
+            so I quite its just not happending
+            instead I'm going to use the forest project and use some of this projects feature in there
 
+# case closed shane
 
 
 
