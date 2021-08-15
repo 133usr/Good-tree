@@ -215,7 +215,7 @@ for (var i = 0; i < num_instances; i++){
     }else{
         stretches.push(Math.random());
     }
-} */
+} 
 
 var offsetAttribute = new THREE.InstancedBufferAttribute( new Float32Array( offsets ), 3);
 var stretchAttribute = new THREE.InstancedBufferAttribute( new Float32Array( stretches ), 1);
@@ -227,11 +227,11 @@ instanced_geometry.addAttribute( 'offset', offsetAttribute);
 instanced_geometry.addAttribute( 'orientation', orientationAttribute);
 instanced_geometry.addAttribute( 'stretch', stretchAttribute);
 instanced_geometry.addAttribute( 'halfRootAngleSin', halfRootAngleSinAttribute);
-instanced_geometry.addAttribute( 'halfRootAngleCos', halfRootAngleCosAttribute);
+instanced_geometry.addAttribute( 'halfRootAngleCos', halfRootAngleCosAttribute); */
 
 //Get alpha map and blade texture
 var texture =  loader.load( './materials/blade_diffuse.jpg' );
-var alphaMap =  loader.load( './materials/blade_alpha.jpg' );
+var alphaMap =  loader.load( './materials/blade_alpha.jpg' ); 
 
 //Define the material, specifying attributes, uniforms, shaders etc.
 var material = new THREE.RawShaderMaterial( {
@@ -243,18 +243,23 @@ var material = new THREE.RawShaderMaterial( {
     vertexShader: document.getElementById( 'vertex-shader' ).textContent,
     fragmentShader: document.getElementById( 'fragment-shader' ).textContent,
     side: THREE.DoubleSide
-} );
+} ); 
+
 
 var forest = new THREE.Mesh( instanced_geometry, material );
 // mesh.castShadow = true;
 // mesh.receiveShadow = true;
 scene.add(forest);
 
+/* remove all grass thingy
 // add shadows to grass blades
 forest.customDepthMaterial = new THREE.MeshDepthMaterial({
     depthPacking: THREE.RGBADepthPacking,
     alphaTest: 0.5
 });
+
+
+
 forest.customDepthMaterial.onBeforeCompile = shader => {
     // app specific instancing shader code
     shader.vertexShader =
@@ -278,6 +283,7 @@ forest.customDepthMaterial.onBeforeCompile = shader => {
     shader.fragmentShader =
         "#define DEPTH_PACKING 3201" + "\n" + shader.fragmentShader;
 };
+*/
 
 forest.castShadow = true;
 forest.receiveShadow = true;
