@@ -19,6 +19,17 @@ project is too heavy for low end phone
 5. Making ground smaller
     -    
 
+
+
+
+
+
+
+
+
+
+
+
 # Forests (CMPT 361 Assignment 3 Problem 2 )
 
 This project implements a scene renderer based on three.js. The available options for rendering include trees, grass, soil and sun. Additional features include perspective changing, allowing users to view the rendered scene from different perspectives and zoom in/out for closer views.

@@ -110,7 +110,7 @@ function multiplyQuaternions(q1, q2){
 }
 
 //The ground
-var ground_geometry = new THREE.PlaneGeometry(1000, 1000, 32, 32);
+var ground_geometry = new THREE.PlaneGeometry(100, 100, 32, 32);
 ground_geometry.lookAt(new THREE.Vector3(0,1,0));
 ground_geometry.verticesNeedUpdate = true;
 var loader = new THREE.TextureLoader();
