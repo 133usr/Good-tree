@@ -23,7 +23,7 @@ project is too heavy for low end phone
             so I got it ~
             lets find another way of adding ground instead of repeating jpg on screen
 
-            
+            - removing ground
 
 
 

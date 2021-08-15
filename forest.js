@@ -161,11 +161,11 @@ ground_geometry.lookAt(new THREE.Vector3(0,1,0));
 ground_geometry.verticesNeedUpdate = true;
 var loader = new THREE.TextureLoader();
 loader.crossOrigin = '';
-var texture = loader.load( "./materials/soil.jpg" );
+/*var texture = loader.load( "./materials/soil.jpg" );
 texture.wrapS = THREE.RepeatWrapping;
 texture.wrapT = THREE.RepeatWrapping;
 texture.repeat.x = 30;
-texture.repeat.y = 30;
+texture.repeat.y = 30;*/
 var ground_material = new THREE.MeshLambertMaterial({ map : texture });
 var ground = new THREE.Mesh(ground_geometry, ground_material);
 ground.receiveShadow = true;
@@ -175,7 +175,9 @@ for (var i = 0; i < ground.geometry.vertices.length; i++){
     v.y = 0;
 }
 ground.geometry.computeVertexNormals();
-scene.add(ground);
+//scene.add(ground);
+
+
 
 //Define base geometry that will be instanced. We use a plane for an individual blade of grass
 var base_geometry = new THREE.PlaneBufferGeometry(w_, h_, 1, joints);
@@ -187,6 +189,8 @@ var instanced_geometry = new THREE.InstancedBufferGeometry();
 instanced_geometry.index = base_geometry.index;
 instanced_geometry.attributes.position = base_geometry.attributes.position;
 instanced_geometry.attributes.uv = base_geometry.attributes.uv;
+
+
 
 // Each instance has its own data for position, rotation and scale
 var offsets = [];
@@ -388,7 +392,7 @@ function draw_tree(x, z) {
     tree.add(squareLeave01);
     tree.add(squareLeave02);
     tree.add(squareLeave03);
-    tree.add(ground);
+    //tree.add(ground);
     tree.add(stem);
     tree.scale.set(3, 3, 3);
 
