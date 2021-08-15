@@ -16,7 +16,7 @@ var num_instances = 500;
 var num_tree = 150;
 
 //Camera rotat
-//var rotate = true;
+var rotate = true;
 
 //Initialise three.js
 var scene = new THREE.Scene();
@@ -87,12 +87,12 @@ var cubeTexture = cubeTextureLoader.load( [
 scene.background = cubeTexture;
 
 
-//OrbitControls.js for camera manipulation by shane
+//OrbitControls.js for camera manipulation
 var controls = new OrbitControls(camera, renderer.domElement);
-//controls.autoRotate = rotate;
-//controls.autoRotateSpeed = 0.2;
+controls.autoRotate = rotate;
+controls.autoRotateSpeed = 0.2;
 controls.enableZoom = true;
-				//controls.autorotate =true;
+				controls.autorotate =true;
 				controls.screenSpacePanning = false;
 				controls.minDistance = 50;
 				controls.maxDistance = 500;
@@ -101,7 +101,6 @@ controls.enableZoom = true;
 				controls.update();
 
 //http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/code/index.htm
-
 function multiplyQuaternions(q1, q2){
     x =  q1.x * q2.w + q1.y * q2.z - q1.z * q2.y + q1.w * q2.x;
     y = -q1.x * q2.z + q1.y * q2.w + q1.z * q2.x + q1.w * q2.y;
@@ -143,7 +142,6 @@ instanced_geometry.index = base_geometry.index;
 instanced_geometry.attributes.position = base_geometry.attributes.position;
 instanced_geometry.attributes.uv = base_geometry.attributes.uv;
 
-
 // Each instance has its own data for position, rotation and scale
 var offsets = [];
 var orientations = [];
@@ -151,7 +149,6 @@ var stretches = [];
 var halfRootAngleSin = [];
 var halfRootAngleCos = [];
 
-/* //removed Grass by shane
 //Temp variables
 var quaternion_0 = new THREE.Vector4();
 var quaternion_1 = new THREE.Vector4();
@@ -160,8 +157,7 @@ var x, y, z, w;
 //The min and max angle for the growth direction (in radians)
 var min = -0.25;
 var max =  0.25;
-*/
-/* removed Grass instance known as blade
+
 //For each instance of the grass blade
 for (var i = 0; i < num_instances; i++){
     //Offset of the roots
@@ -215,7 +211,7 @@ for (var i = 0; i < num_instances; i++){
     }else{
         stretches.push(Math.random());
     }
-} 
+}
 
 var offsetAttribute = new THREE.InstancedBufferAttribute( new Float32Array( offsets ), 3);
 var stretchAttribute = new THREE.InstancedBufferAttribute( new Float32Array( stretches ), 1);
@@ -227,11 +223,11 @@ instanced_geometry.addAttribute( 'offset', offsetAttribute);
 instanced_geometry.addAttribute( 'orientation', orientationAttribute);
 instanced_geometry.addAttribute( 'stretch', stretchAttribute);
 instanced_geometry.addAttribute( 'halfRootAngleSin', halfRootAngleSinAttribute);
-instanced_geometry.addAttribute( 'halfRootAngleCos', halfRootAngleCosAttribute); */
+instanced_geometry.addAttribute( 'halfRootAngleCos', halfRootAngleCosAttribute);
 
 //Get alpha map and blade texture
 var texture =  loader.load( './materials/blade_diffuse.jpg' );
-var alphaMap =  loader.load( './materials/blade_alpha.jpg' ); 
+var alphaMap =  loader.load( './materials/blade_alpha.jpg' );
 
 //Define the material, specifying attributes, uniforms, shaders etc.
 var material = new THREE.RawShaderMaterial( {
@@ -243,23 +239,18 @@ var material = new THREE.RawShaderMaterial( {
     vertexShader: document.getElementById( 'vertex-shader' ).textContent,
     fragmentShader: document.getElementById( 'fragment-shader' ).textContent,
     side: THREE.DoubleSide
-} ); 
-
+} );
 
 var forest = new THREE.Mesh( instanced_geometry, material );
 // mesh.castShadow = true;
 // mesh.receiveShadow = true;
 scene.add(forest);
 
-/* remove all grass
 // add shadows to grass blades
 forest.customDepthMaterial = new THREE.MeshDepthMaterial({
     depthPacking: THREE.RGBADepthPacking,
     alphaTest: 0.5
 });
-
-
-
 forest.customDepthMaterial.onBeforeCompile = shader => {
     // app specific instancing shader code
     shader.vertexShader =
@@ -283,7 +274,6 @@ forest.customDepthMaterial.onBeforeCompile = shader => {
     shader.fragmentShader =
         "#define DEPTH_PACKING 3201" + "\n" + shader.fragmentShader;
 };
-*/
 
 forest.castShadow = true;
 forest.receiveShadow = true;
@@ -298,12 +288,11 @@ forest.receiveShadow = true;
 // sphere.position.set(0, 3, 0);
 
 // add sun to the scene
-/*
 var sunGeometry = new THREE.SphereBufferGeometry(  2, 32, 32);
 var sunMaterial = new THREE.MeshStandardMaterial( { color: 0xFDB813 } );
 var sun = new THREE.Mesh( sunGeometry, sunMaterial );
 scene.add( sun );
-*/
+
 
 function draw_tree(x, z) {
 // add tree to the scene
@@ -414,14 +403,12 @@ function draw(){
     // instanced_geometry.maxInstancedCount = Math.round(time * 10) % num_instances;
 
     renderer.render(scene, camera);
-    controls.update();
-    //if(rotate){
-    //    controls.update();
-  //  }
-    //removing lighs and sun
-    //dirLight.position.x = 50 * Math.cos(time * 0.5);
-   // dirLight.position.y = 50 * Math.sin(time * 0.5);
-   // sun.position.set(500 * Math.cos(time * 0.5), 500 * Math.sin(time * 0.5), 500);
+    if(rotate){
+        controls.update();
+    }
+    dirLight.position.x = 50 * Math.cos(time * 0.5);
+    dirLight.position.y = 50 * Math.sin(time * 0.5);
+    sun.position.set(500 * Math.cos(time * 0.5), 500 * Math.sin(time * 0.5), 500);
     requestAnimationFrame(draw);
 }
 

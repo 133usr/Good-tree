@@ -6,11 +6,18 @@ project is too heavy for low end phone
     -removed sun nothing happend
     -removed sunlight nothing happend
 3. Removing rotation
-    -    
+    -didn't worked either    
 
-Final- Okay I got it May be the issue is line 417
-if (rotate) update controls 
-the controls keep updating causing heaps. this is it (may be)
+4.  Okay I got it May be the issue is line 417
+    if (rotate) update controls 
+    the controls keep updating causing heaps. this is it (may be)
+    -but no it is not Its still hanging 
+    -didn't worked
+
+**THUS I NEED TO ADD ALL THE ABOVE 1 2 3 4 BACK TO THE SCRIPT
+
+5. Making ground smaller
+    -    
 
 # Forests (CMPT 361 Assignment 3 Problem 2 )
 
