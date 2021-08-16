@@ -22,7 +22,18 @@ var rotate = true;
 var scene = new THREE.Scene();
 
 var renderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas, alpha: true}); // changing antialias and alpha to false
-renderer.setPixelRatio(window.devicePixelRatio/2);
+
+//I want low end phone to run this on low resolution so
+//let's put if
+if (screen.width < 380 || screen.height < 700) {
+    alert('Low Resolution mode!');
+    renderer.setPixelRatio(window.devicePixelRatio/2);
+}
+else {
+    alert('Good to go!');
+    renderer.setPixelRatio(window.devicePixelRatio);
+}
+
 renderer.setSize( window.innerWidth, window.innerHeight );
 // renderer.setClearColor( 0x66deff, 1);
 // check height and width of deviec
