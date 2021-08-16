@@ -33,6 +33,12 @@ project is too heavy for low end phone
             so I quite its just not happending
             instead I'm going to use the forest project and use some of this projects feature in there
 
+#### HEY HEY HEY !! FINALLY I GOT IT
+
+            -its the renderer.setPixelRatio(window.devicePixelRatio);
+            - that's the resolution function 
+            - You may divide it by 2; and you are done
+
 # case closed shane
 
 
