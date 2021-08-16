@@ -21,7 +21,7 @@ var rotate = true;
 //Initialise three.js
 var scene = new THREE.Scene();
 
-var renderer = new THREE.WebGLRenderer({antialias: false, canvas: canvas, alpha: false}); // changing antialias and alpha to false
+var renderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas, alpha: true}); // changing antialias and alpha to false
 renderer.setPixelRatio(window.devicePixelRatio/2);
 renderer.setSize( window.innerWidth, window.innerHeight );
 // renderer.setClearColor( 0x66deff, 1);
