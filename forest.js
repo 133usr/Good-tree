@@ -22,8 +22,8 @@ var rotate = true;
 var scene = new THREE.Scene();
 
 var renderer = new THREE.WebGLRenderer({antialias: false, canvas: canvas, alpha: false}); // changing antialias and alpha to false
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
+renderer.setPixelRatio(window.devicePixelRatio/2);
+renderer.setSize( window.innerWidth, window.innerHeight );
 // renderer.setClearColor( 0x66deff, 1);
 
 renderer.shadowMap.enabled = true;
