@@ -25,7 +25,8 @@ var renderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas, alpha: 
 renderer.setPixelRatio(window.devicePixelRatio/2);
 renderer.setSize( window.innerWidth, window.innerHeight );
 // renderer.setClearColor( 0x66deff, 1);
-alert("window.devicePixelRatio is " + window.devicePixelRatio);
+// check height and width of deviec
+alert("window.devicePixelRatio is " + window.devicePixelRatio +"\n inner width is - " + window.innerWidth  + "\n inner height - " + window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
