@@ -39,6 +39,20 @@ project is too heavy for low end phone
             - that's the resolution function 
             - You may divide it by 2; and you are done
 
+            or just put a condition
+
+            
+    //I want low end phone to run this on low resolution so
+    //let's put if
+    if (screen.width < 380 || screen.height < 700) {
+        alert('Low Resolution mode!');
+        renderer.setPixelRatio(window.devicePixelRatio/2);
+        }
+    else    {
+        alert('Good to go!');
+        renderer.setPixelRatio(window.devicePixelRatio);
+            }
+
 # case closed shane
 
 
