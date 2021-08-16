@@ -6,7 +6,7 @@ var canvas = document.getElementById("canvas");
 //Variables for blade mesh the height of grass and it's width
 var joints = 5;
 var w_ = 0.12;
-var h_ = 1.2;
+var h_ = 1.1;
 
 //Patch side length that is width of ground
 var width = 100;
