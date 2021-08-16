@@ -21,7 +21,7 @@ var rotate = true;
 //Initialise three.js
 var scene = new THREE.Scene();
 
-var renderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas, alpha: true});
+var renderer = new THREE.WebGLRenderer({antialias: false, canvas: canvas, alpha: false}); // changing antialias and alpha to false
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize( window.innerWidth, window.innerHeight );
 // renderer.setClearColor( 0x66deff, 1);
@@ -31,10 +31,19 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 var distance = 400;
 
-var FOV = 2 * Math.atan( window.innerHeight / ( 2 * distance ) ) * 90 / Math.PI;
+//var FOV = 2 * Math.atan( window.innerHeight / ( 2 * distance ) ) * 90 / Math.PI;
+//Changing FOV to 60 only
+var FOV = 60;
+
+
+	// Get the width and height of the screen and use them to setup the aspect ratio
+	// of the camera and the size of the renderer.
+    var HEIGHT, WIDTH;
+	HEIGHT = window.innerHeight;
+	WIDTH = window.innerWidth;
 
 //Camera
-var camera = new THREE.PerspectiveCamera(FOV, window.innerWidth / window.innerHeight, 1, 20000);
+var camera = new THREE.PerspectiveCamera(FOV, window.innerWidth / window.innerHeight, 1,1000);
 camera.position.set(-50, 10, 50);
 scene.add(camera);
 
