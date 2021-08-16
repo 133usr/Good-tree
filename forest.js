@@ -26,7 +26,7 @@ renderer.setPixelRatio(window.devicePixelRatio/2);
 renderer.setSize( window.innerWidth, window.innerHeight );
 // renderer.setClearColor( 0x66deff, 1);
 // check height and width of deviec
-alert("window.devicePixelRatio is " + window.devicePixelRatio +"\n inner width is - " + window.innerWidth  + "\n inner height - " + window.innerHeight);
+alert("window.devicePixelRatio is " + window.devicePixelRatio +"\n inner width is - " + screen.width  + "\n inner height - " + screen.height);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
@@ -156,7 +156,7 @@ class Land {
 	}
 	
 	drawGrass() {
-		const grassGeometry = new THREE.BoxGeometry(1500, 70, 1, 10, 10, 1);
+		const grassGeometry = new THREE.BoxGeometry(50000, 70, 1, 10, 10, 1);
 		const grass = new THREE.Mesh(grassGeometry, this.grassMaterial);
 		grass.receiveShadow = true;
 		this.group.add(grass);
