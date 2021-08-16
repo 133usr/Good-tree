@@ -155,27 +155,23 @@ class Land {
 			roughness: 1
 		}); 
 		
-		this.drawGround();
+		
 		this.drawGrass();
 	}
 	
-	drawGround() {
-		const groundGeometry = new THREE.BoxGeometry(150, 70, 3, 10, 10, 1);
-		const ground = new THREE.Mesh(groundGeometry, this.groundMaterial);
-		ground.translateZ(-2);
-		this.group.add(ground);
-	}
+	
 	
 	drawGrass() {
-		const grassGeometry = new THREE.BoxGeometry(150, 70, 1, 10, 10, 1);
+		const grassGeometry = new THREE.BoxGeometry(150, 170, 1, 10, 10, 1);
 		const grass = new THREE.Mesh(grassGeometry, this.grassMaterial);
 		grass.receiveShadow = true;
 		this.group.add(grass);
 	}
 }
 
+var loader = new THREE.TextureLoader();
 
-
+/*
 //The ground
 var ground_geometry = new THREE.PlaneGeometry(100, 100, 32, 32);
 ground_geometry.lookAt(new THREE.Vector3(0,1,0));
@@ -197,6 +193,7 @@ for (var i = 0; i < ground.geometry.vertices.length; i++){
 }
 ground.geometry.computeVertexNormals();
 scene.add(ground);
+*/
 
 //Define base geometry that will be instanced. We use a plane for an individual blade of grass
 var base_geometry = new THREE.PlaneBufferGeometry(w_, h_, 1, joints);
@@ -409,7 +406,7 @@ function draw_tree(x, z) {
     tree.add(squareLeave01);
     tree.add(squareLeave02);
     tree.add(squareLeave03);
-    tree.add(ground);
+   // tree.add(ground);
     tree.add(stem);
     tree.scale.set(3, 3, 3);
 
