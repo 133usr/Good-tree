@@ -25,7 +25,7 @@ var renderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas, alpha: 
 renderer.setPixelRatio(window.devicePixelRatio/2);
 renderer.setSize( window.innerWidth, window.innerHeight );
 // renderer.setClearColor( 0x66deff, 1);
-
+alert("window.devicePixelRatio is " + window.devicePixelRatio);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
