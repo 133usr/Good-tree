@@ -3,16 +3,16 @@ import {OrbitControls} from "./js/OrbitControls.js";
 var canvas = document.getElementById("canvas");
 
 
-//Variables for blade mesh
+//Variables for blade mesh the height of grass and it's width
 var joints = 5;
-var w_ = 0.12;
-var h_ = 1;
+var w_ = 0.22;
+var h_ = 1.2;
 
-//Patch side length
-var width = 1000;
+//Patch side length that is width of ground
+var width = 100;
 
-//Number of blades
-var num_instances = 500;
+//Number of blades grass quantity
+var num_instances = 20000;
 var num_tree = 150;
 
 //Camera rotat
@@ -30,14 +30,14 @@ if (screen.width < 380 || screen.height < 700) {
     renderer.setPixelRatio(window.devicePixelRatio/2);
 }
 else {
-    alert('Good to go!');
+    //alert('Good to go!');
     renderer.setPixelRatio(window.devicePixelRatio);
 }
 
 renderer.setSize( window.innerWidth, window.innerHeight );
 // renderer.setClearColor( 0x66deff, 1);
 // check height and width of deviec
-alert("window.devicePixelRatio is " + window.devicePixelRatio +"\n inner width is - " + screen.width  + "\n inner height - " + screen.height);
+//alert("window.devicePixelRatio is " + window.devicePixelRatio +"\n inner width is - " + screen.width  + "\n inner height - " + screen.height);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
@@ -167,7 +167,7 @@ class Land {
 	}
 	
 	drawGrass() {
-		const grassGeometry = new THREE.BoxGeometry(50000, 70, 1, 10, 10, 1);
+		const grassGeometry = new THREE.BoxGeometry(150, 70, 1, 10, 10, 1);
 		const grass = new THREE.Mesh(grassGeometry, this.grassMaterial);
 		grass.receiveShadow = true;
 		this.group.add(grass);
@@ -355,7 +355,7 @@ forest.receiveShadow = true;
 // sphere.position.set(0, 3, 0);
 
 // add sun to the scene
-var sunGeometry = new THREE.SphereBufferGeometry(  2, 32, 32);
+var sunGeometry = new THREE.SphereBufferGeometry(  100, 32, 32);
 var sunMaterial = new THREE.MeshStandardMaterial( { color: 0xFDB813 } );
 var sun = new THREE.Mesh( sunGeometry, sunMaterial );
 scene.add( sun );
@@ -473,9 +473,9 @@ function draw(){
     if(rotate){
         controls.update();
     }
-    dirLight.position.x = 50 * Math.cos(time * 0.5);
-    dirLight.position.y = 50 * Math.sin(time * 0.5);
-    sun.position.set(500 * Math.cos(time * 0.5), 500 * Math.sin(time * 0.5), 500);
+    dirLight.position.x = 50 * Math.cos(time * 0.25); //time * 0.5 but I slowed the time more
+    dirLight.position.y = 50 * Math.sin(time * 0.25);
+    sun.position.set(500 * Math.cos(time * 0.2), 500 * Math.sin(time * 0.25), 500); //time * 0.5 but I slowed the time more
     requestAnimationFrame(draw);
 }
 
